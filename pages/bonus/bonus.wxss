@@ -1,0 +1,11 @@
+/* pages/bonus/bonus.wxss */
+.myself{
+  padding-left: 10px;
+  padding-bottom: 2px;
+}
+.reverse{
+  padding-right: 5px
+}
+.share{
+  margin-top: 10px;
+}

@@ -1,0 +1,29 @@
+<!--pages/bonus/bonus.wxml-->
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">税前年终奖</view>
+		<input placeholder="请输入税前年终奖" bindinput="shuiQianBonus"  type="number"></input>
+    <text class="reverse text-black">反推</text>
+    <switch class="red sm" unchecked bindchange="reverse"></switch>
+	</view>
+  <view class=" text-xs padding myself">
+      <text class="text-df">计算结果：</text>
+  </view>
+  <view class="cu-form-group margin-top">
+      <view class="title"><text class="text-red text-bold">适用</text>税率：</view>
+      <input placeholder="{{taxRate}}"  disabled="true"></input>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">扣税金额：</view>
+    <input placeholder="{{taxNum}}"  disabled="true"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title"><text class="text-red text-bold">到手年终奖：</text></view>
+    <input placeholder="{{resultNum}}"  disabled="true"></input>
+	</view>
+</form>
+
+
+<view class="flex-view-item">
+    <button class="weui-btn bg-green share" open-type="share">分享朋友</button>
+</view>

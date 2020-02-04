@@ -1,0 +1,18 @@
+
+<view class="bg-img bg-mask padding-tb-xl round a" style="height: 414rpx;">
+  <view class="padding-xl text-white">
+    <view class="padding-xs text-xl">
+      2020年工资年终奖计算器
+    </view>
+    <view class="padding-xs">
+      Only working hard earns money.
+    </view>
+  </view>
+</view>
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/detail/detail" hover-class="none">
+        <text class="text-black">计算工资公式</text>
+      </navigator>
+    </view>
+</view>

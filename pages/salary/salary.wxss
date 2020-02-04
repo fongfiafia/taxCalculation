@@ -1,0 +1,37 @@
+/* pages/salary/salary.wxss */
+.weui-label{
+  font-size: 15px;
+  text-align: left;
+}
+button::after{
+  border: none;
+}
+.btn-myself{
+   background: white;
+   padding-left: 0px;
+   padding-right: 0px;
+}
+.flex-view-item{
+  width: 100%;
+  margin-right: 10px
+}
+.weui-myself{
+  padding-left: 15px
+}
+.weui-cells{
+  height: 100%;
+  width: 100%;
+}
+.weui-input{
+  font-size: 14px;
+}
+.weui-select{
+  font-size: 14px;
+}
+.weui-btn-area{
+  margin-top: 16px
+}
+.result{
+  font-size: 13px;
+  padding-left: 14px
+}

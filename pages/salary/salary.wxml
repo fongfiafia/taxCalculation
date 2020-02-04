@@ -1,0 +1,38 @@
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">税前工资</view>
+		<input placeholder="请输入税前工资" bindinput="shuiQianSalary"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">缴纳公积金比例</view>
+		<picker bindchange="gongJiJinBaseChange" value="{{gongJiJinIndex}}" range="{{gongJiJins}}">
+			<view class="picker">
+			    {{gongJiJins[gongJiJinIndex]}} %
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">专项附加扣除</view>
+		<input placeholder="请输入专项附加扣除金额"></input>
+		<icon type="info_circle"  bindtap="detail" size="22" />
+	</view>
+</form>
+<view class="padding flex  justify-between bg-white" >
+  <button class="cu-btn round circle lg bg-green" open-type="share">分享</button>
+  <button class="cu-btn round circle lg bg-green" bindtap="calculate">计算</button>
+</view>
+
+<view class="result"  hidden="{{hideview}}">
+  <text>社保缴纳合计:{{sheBaoResult}}</text>
+</view>
+<view class="result"  hidden="{{hideview}}">
+  <text>公积金缴纳合计:{{gongjiJinResult}}</text>
+</view>
+<view class="result"  hidden="{{hideview}}">
+  <text>应纳税额:{{taxResult}}</text>
+</view>
+<view class="result"  hidden="{{hideview}}">
+  <text>实际到手工资:{{result}}</text>
+</view>
+
+

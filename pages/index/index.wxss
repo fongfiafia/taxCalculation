@@ -1,0 +1,76 @@
+/**index.wxss**/
+.shareText{
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px
+}
+.btn-image{
+  padding-top: 70px;
+  height: 40px;
+  padding-bottom: 0px
+}
+.weui-btn-area{
+  padding-top: 20%
+}
+.btn-area{
+  padding-top: 20%
+}
+.image{
+  width: 30px;
+  height: 30px
+}
+.cu-btn{
+  height: 100%
+}
+.btn-share{
+  background: white
+}
+button::after{
+  border: none;
+  width: 100px;
+  height: 100px;
+}
+.page{
+  background: white;
+  height: 100%
+}
+.circle{
+  width: 80%;
+  height: 100px;
+  border: 0 solid #ffffff;
+  border-radius: 98rpx; 
+  background-color: beige;
+  padding-left: 20px
+}
+.page__bd{
+  height: 100%
+}
+.text-myself{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
