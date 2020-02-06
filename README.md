@@ -6,7 +6,14 @@
 ## 技术要点
 主要的格式框架用到了colorui，具体应用地址[GitHub地址：https://github.com/weilanwl/ColorUI/](https://github.com/weilanwl/ColorUI/) 可以参考学习。
 
+## 视频演示
+https://www.bilibili.com/video/av86666746
+
+## 开发文章
+https://zhuanlan.zhihu.com/p/105066422
+
 ## 小程序二维码
 欢迎大家扫描查看
 
 ![Image text](https://github.com/fongfiafia/taxCalculation/blob/master/scan.png)
+
