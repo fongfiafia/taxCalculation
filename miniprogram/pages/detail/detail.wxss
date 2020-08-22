@@ -1,0 +1,12 @@
+/* pages/detail/detail.wxss */
+.img{
+  width: 100%;
+  height: 150px
+}
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle
+}

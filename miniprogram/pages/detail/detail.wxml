@@ -1,0 +1,40 @@
+<!--pages/detail/detail.wxml-->
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>计算公式
+  </view>
+</view>
+<view class="bg-white padding-lr">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="padding"> 1、工资纳税金额 = （工资所得 - 五险一金 - 专项扣除金额）× 适用税率 - 速算扣除数</view>
+  </view>
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="padding">  2、到手工资金额 = 工资所得 - 五险一金 - 工资纳税金额</view>
+  </view>
+</view>
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>税率表
+  </view>
+</view>
+<view class="bg-white padding-lr">
+  <view class="solids-bottom padding-xs flex align-center">
+      <image src="../../img/shuiTable1.jpg" class="img"></image>
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>一个例子
+  </view>
+</view>
+<view class="bg-white padding-lr">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="solids-bottom padding-xs flex align-center">
+      <view class="padding">  
+      我们以工资1万元为例，需要缴纳的五险一金：10000*8%(养老保险金)+10000*2%(医疗保险金)+10000*0.5%(失业保险金)+10000*7%(住房公积金)=1750元。
+  全月应纳所得额=10000-1750-5000=3250元，根据税率表，适用税率为10%，工资纳税金额=3250*10%-210=115元。
+  所以工资1万元，所需要缴纳的个税为115元。</view>
+    </view>
+  </view>
+</view>
