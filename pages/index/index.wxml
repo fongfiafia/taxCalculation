@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="page"  xmlns:wx="http://www.w3.org/1999/xhtml"> 
+    <view class="weui-panel__hd" ><text class="text-myself">请选择要计算的类别</text></view>
+   
+    <view class="flex solid-bottom padding justify-around btn-area">
+      <button class="cu-btn round circle lg" bindtap="toSalary">工资</button>
+      <button class="cu-btn round circle lg" bindtap="toBonus"> 年终奖</button>
+    </view>
+
+    <view class="btn-image">
+      <button class="btn-share" bindtap="detail" open-type="share"> 
+        <image src="/img/share.png" class="image"> 
+        </image>
+      </button>
+      <view class="shareText" >分享好友</view>
+    </view>
+
+</view>

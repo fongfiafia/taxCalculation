@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/myself/myself",
+    "pages/salary/salary",
+    "pages/bonus/bonus",
+    "pages/logs/logs",
+    "pages/detail/detail"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "工资年终奖个税计算器",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/home.jpg",
+        "selectedIconPath": "img/selectedHome.jpg"
+      },
+      {
+        "pagePath": "pages/myself/myself",
+        "text": "我的",
+        "iconPath": "img/my.png",
+        "selectedIconPath": "img/selectedMy.png"
+      }
+    ],
+    "selectedColor": "#DC143C"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
