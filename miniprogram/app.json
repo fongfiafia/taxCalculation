@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/myself/myself",
-    "pages/salary/salary",
+    "pages/back/back",
     "pages/bonus/bonus",
+    "pages/salary/salary",
+    "pages/myself/myself",
     "pages/logs/logs",
     "pages/detail/detail"
-
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,7 +16,7 @@
   },
   "tabBar": {
     "list": [
-      {
+      { 
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "img/home.jpg",

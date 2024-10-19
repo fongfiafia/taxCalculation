@@ -1,4 +1,7 @@
 // pages/myself/myself.js
+
+var interstitialAd = null;
+
 Page({
   // 开启转发到朋友圈功能
   onShareAppMessage: function (res) {
@@ -26,12 +29,29 @@ Page({
   data: {
 
   },
+  showInsertAdvert: function(e){
+    // interstitialAd.show().catch((err) => {
+    //   console.error(err)
+    // })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+      // 创建插屏广告实例
+    // if(wx.createInterstitialAd){
+    //   interstitialAd = wx.createInterstitialAd({ adUnitId: 'adunit-5a2e28b484cb5b44' })
+    //   interstitialAd.onLoad(() => {
+    //     console.log('onLoad event emit')
+    //   })
+    //   interstitialAd.onError((err) => {
+    //     console.log('onError event emit', err)
+    //   })
+    //   interstitialAd.onClose((res) => {
+    //     console.log('onClose event emit', res)
+    //   })
+    // }
   },
 
   /**
@@ -45,7 +65,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // if (interstitialAd) {
+    //   interstitialAd.show().catch((err) => {
+    //     console.error(err)
+    //   })
+    // }
   },
 
   /**

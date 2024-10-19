@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
 Page({
     // 开启转发到朋友圈功能
     onShareAppMessage: function (res) {
@@ -27,7 +26,10 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    msgList: [
+      { url: "url", title: "本产品近期打算升级！欢迎点击下方：" },
+      { url: "url", title: "关于-意见反馈中填写您的意见！" }]
   },
   toSalary: function(e) {
     wx.navigateTo({
@@ -53,6 +55,7 @@ Page({
     })
   },
   onLoad: function () {
+    app.sleep
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

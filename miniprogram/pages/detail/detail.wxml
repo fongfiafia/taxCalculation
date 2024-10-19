@@ -37,4 +37,9 @@
   所以工资1万元，所需要缴纳的个税为115元。</view>
     </view>
   </view>
+
+  <view class="adContainer">
+    <ad unit-id="adunit-210099d71f8acc47" ad-intervals="30"></ad>
+  </view>
+
 </view>

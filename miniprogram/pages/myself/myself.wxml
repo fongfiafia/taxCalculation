@@ -10,8 +10,26 @@
 </view>
 <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/detail/detail" hover-class="none">
+      <navigator class="content" url="/pages/detail/detail" hover-class="none" bindtap="showInsertAdvert">
         <text class="text-black">计算工资公式</text>
       </navigator>
     </view>
+
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/back/back" hover-class="none" bindtap="showInsertAdvert">
+        <text class="text-black">意见反馈</text>
+      </navigator>
+    </view>
+
+    <view class="cu-item arrow">
+      <navigator class="content" target="miniProgram" app-id="wx644a4839f41d919d"  hover-class="none">
+        <text class="text-black">更多好玩的--梗大全</text>
+      </navigator>
+    </view>
+
+
+</view>
+
+<view class="adContainer">
+  <ad unit-id="adunit-210099d71f8acc47" a d-intervals="30"></ad>
 </view>

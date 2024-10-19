@@ -1,0 +1,24 @@
+<!--pages/feedback/feedback.wxml-->
+<form>
+  <view class="cu-form-group margin-top">
+		<textarea maxlength="-1" bindinput="setCommentHandler" placeholder="开发者打算最近改版，期待您的宝贵意见!"></textarea>
+	</view>
+</form>
+
+<!-- 需要加上data-target属性。。才能成功 -->
+<view class="padding flex flex-wrap justify-between align-center bg-white">
+  <button class="cu-btn round margin-top bg-olive" bindtap="submit" data-target="bottomModal">提交</button>
+</view>
+
+
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <view class="action text-blue" bindtap="hideModal">确定</view>
+    </view>
+    <view class="padding-xl">
+      感谢您的宝贵意见！
+    </view>
+  </view>
+</view>

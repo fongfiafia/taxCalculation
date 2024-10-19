@@ -1,4 +1,18 @@
 <!--index.wxml-->
+<view class='adsec'>
+  <icon class='iconfont icongonggao c_main fs_36'></icon>
+  <text class='c_main fs_26'>公告：</text>
+  <swiper class="swiper_container" autoplay="true" circular="true" interval="2000">
+    <block wx:for="{{msgList}}" wx:key="key">
+      <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate">
+        <swiper-item>
+          <view class="swiper_item">{{item.title}}</view>
+        </swiper-item>
+      </navigator>
+    </block>
+  </swiper>
+</view>
+
 <view class="page"  xmlns:wx="http://www.w3.org/1999/xhtml"> 
     <view class="weui-panel__hd" ><text class="text-myself">请选择要计算的类别</text></view>
    
@@ -15,4 +29,9 @@
       <view class="shareText" >分享给好友</view>
     </view>
 
+    <!-- <view class="adContainer" style="">
+      <ad unit-id="adunit-210099d71f8acc47" ad-intervals="30"></ad>
+    </view> -->
 </view>
+
+

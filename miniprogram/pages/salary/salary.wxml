@@ -19,7 +19,13 @@
 </form>
 <view class="padding flex  justify-between bg-white" >
   <button class="cu-btn round circle lg bg-green" open-type="share">分享</button>
-  <button class="cu-btn round circle lg bg-green" bindtap="calculate">计算</button>
+  <button class="cu-btn round circle lg bg-green" bindtap="calculate" hidden= "{{hideCalculate}}">计算</button>
+	<button class="cu-btn round circle lg bg-green" bindtap="watchAdvert" hidden="{{hideAdvert}}">观看广告</button>
+</view>
+
+<view class="padding-lr bg-white">
+	<view class="text-left padding" style="white-space:pre-line">剩余计算次数： {{availableCountTimes}}次
+	<text>观看广告增加<text class="text-red">10次</text>免费计算</text></view>
 </view>
 
 <view class="result"  hidden="{{hideview}}">
@@ -35,4 +41,7 @@
   <text>实际到手工资:{{result}}</text>
 </view>
 
+<view class="adContainer">
+  <ad unit-id="adunit-210099d71f8acc47"></ad>
+</view>
 

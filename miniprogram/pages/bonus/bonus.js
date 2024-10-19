@@ -1,5 +1,23 @@
 // pages/bonus/bonus.js
+let rewardedVideoAd = null
 Page({
+   /**
+   * 页面的初始数据
+   */
+  data: {
+    taxRate: '',
+    taxNum: '',
+    resultNum: '',
+    shuiQianBonusNum: '',
+    calFlag: false, // fasle表示正算，true表示反算
+    text1: '税前年终奖',
+    text2: '税后年终奖',
+    clickTimes:0,
+    availableCountTimes: 0,
+    hideAdvert :true,
+    disableHideReverse: ""
+    // hideCalculate : true
+  },
   // 开启转发到朋友圈功能
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
@@ -20,18 +38,42 @@ Page({
       imageUrl: ''
     }
   },
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    taxRate: '',
-    taxNum: '',
-    resultNum: '',
-    shuiQianBonusNum: '',
-    calFlag: false, // fasle表示正算，true表示反算
-    text1: '税前年终奖',
-    text2: '税后年终奖'
+  onLoad: function (options){
+    this.setData({
+      availableCountTimes : getApp().globalData.availableCountTimes
+     })
+
+     if (getApp().globalData.availableCountTimes == 0 ) {
+       this.setData({
+         hideAdvert: false,
+         disableHideReverse: "any str"
+       })
+     }
+
+     if(wx.createRewardedVideoAd){
+      rewardedVideoAd = wx.createRewardedVideoAd({ adUnitId: 'adunit-9eda0049b868a58e' })
+      rewardedVideoAd.onLoad(() => {
+        console.log('onLoad event emit')
+      })
+      rewardedVideoAd.onError((err) => {
+        console.log('onError event emit', err)
+      })
+      rewardedVideoAd.onClose((res) => {
+        if (res && res.isEnded) {
+          console.log("complete jiesu ")
+            this.setData({
+              availableCountTimes : 10,
+              hideAdvert: true,
+              disableHideReverse: "",
+            })
+            getApp().globalData.availableCountTimes = 10
+        } else {
+          console.log("interupt jiesu ")
+        }
+      })
+    }
   },
+  
   shuiQianBonus: function(e) {
     var temp = e.detail.value;
     var taxNumTemp = 0;
@@ -61,12 +103,32 @@ Page({
   },
   reverse: function(e) {
     var temp = e.detail.value;
+    var curAvailableCountTimes = this.data.availableCountTimes - 1 
+    if ( curAvailableCountTimes == 0) {
+      this.setData({
+        hideAdvert : false,
+        disableHideReverse: "any str"
+      })
+    } 
     this.setData({
-      calFlag : temp
+      calFlag : temp,
+      availableCountTimes: curAvailableCountTimes
     })
+
+    getApp().globalData.availableCountTimes = curAvailableCountTimes
     var shuiQianNum = this.data.shuiQianBonusNum;
     e.detail.value = shuiQianNum;
     this.shuiQianBonus(e);
+  },
+  watchAdvert: function(e) {
+    rewardedVideoAd.show()
+    .catch(() => {
+        rewardedVideoAd.load()
+        .then(() => rewardedVideoAd.show())
+        .catch(err => {
+          console.log('激励视频 广告显示失败')
+        })
+    })
   },
   /**
    * 用户点击右上角分享
@@ -78,6 +140,5 @@ Page({
       imageUrl: '/img/shareTo.jpg'
     }
   },
-  onLoad: function (){
-  }
+
 })

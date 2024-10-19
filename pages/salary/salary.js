@@ -196,5 +196,12 @@ Page({
       desc: '工资涨了？个税调整了？快来算算到手多少钱吧！',
       imageUrl: '/img/shareTo.jpg'
     }
+  },
+  onShareTimeline: function () {
+    return {
+      title: '工资涨了？个税调整了？快来算算到手多少钱吧！',
+      desc: '工资涨了？个税调整了？快来算算到手多少钱吧！',
+      imageUrl: '/img/shareTo.jpg'
+    }
   }
 })
