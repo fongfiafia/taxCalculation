@@ -1,0 +1,95 @@
+// pages/salary/salary.js
+import citySheBaoBase from '../../utils/citySheBaoBase';
+
+Page({
+  data: {
+    cityArray: [[], []],
+    cityIndex: [0, 0],
+    sheBaoBase: 0,
+    sheBaoMin: 0,
+    sheBaoMax: 0,
+    // 其他数据项...
+  },
+
+  onLoad: function () {
+    const provinces = Object.keys(citySheBaoBase);
+    const cities = Object.keys(citySheBaoBase[provinces[0]]);
+    this.setData({
+      cityArray: [provinces, cities],
+    });
+
+    this.updateSheBaoBase();
+  },
+
+  columnChange: function (e) {
+    const data = {
+      cityArray: this.data.cityArray,
+      cityIndex: this.data.cityIndex
+    };
+    data.cityIndex[e.detail.column] = e.detail.value;
+
+    if (e.detail.column === 0) { // 如果更改的是省份列
+      const cities = Object.keys(citySheBaoBase[data.cityArray[0][e.detail.value]]);
+      data.cityArray[1] = cities;
+      data.cityIndex[1] = 0;
+    }
+
+    this.setData(data);
+  },
+
+  cityChange: function (e) {
+    this.setData({
+      cityIndex: e.detail.value
+    });
+    this.updateSheBaoBase();
+  },
+
+  updateSheBaoBase: function () {
+    const province = this.data.cityArray[0][this.data.cityIndex[0]];
+    const city = this.data.cityArray[1][this.data.cityIndex[1]];
+
+    if (citySheBaoBase[province] && citySheBaoBase[province][city]) {
+      const { min, max } = citySheBaoBase[province][city];
+      this.setData({
+        sheBaoMin: min,
+        sheBaoMax: max,
+        sheBaoBase: min // 默认使用最低基数
+      });
+    } else {
+      console.error('无法找到所选城市的社保基数信息');
+      // 设置一个默认值或者显示一个错误消息给用户
+      this.setData({
+        sheBaoMin: 0,
+        sheBaoMax: 0,
+        sheBaoBase: 0
+      });
+    }
+  },
+
+  // 计算社保基数
+  calculateSheBaoBase: function (salary) {
+    if (salary < this.data.sheBaoMin) {
+      return this.data.sheBaoMin;
+    } else if (salary > this.data.sheBaoMax) {
+      return this.data.sheBaoMax;
+    } else {
+      return salary;
+    }
+  },
+
+  // 修改计算方法
+  calculate: function (e) {
+    const shuiQianSalaryNum = parseFloat(this.data.shuiQianSalaryNum);
+    const sheBaoBase = this.calculateSheBaoBase(shuiQianSalaryNum);
+
+    // 使用 sheBaoBase 进行后续计算
+    // ...
+
+    this.setData({
+      sheBaoBase: sheBaoBase,
+      // 其他计算结果...
+    });
+  },
+
+  // 其他方法保持不变...
+});

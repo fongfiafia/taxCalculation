@@ -2,18 +2,16 @@
 	<view class="cu-form-group margin-top">
 		<view class="title">税前工资</view>
 		<input placeholder="请输入税前工资" bindinput="shuiQianSalary"></input>
+		<text class="text-blue" bindtap="showPeriodPicker">当前期数: {{currentPeriod}}</text>
 	</view>
   <view class="cu-form-group">
-		<view class="title">缴纳公积金比例</view>
-		<picker bindchange="gongJiJinBaseChange" value="{{gongJiJinIndex}}" range="{{gongJiJins}}">
-			<view class="picker">
-			    {{gongJiJins[gongJiJinIndex]}} %
-			</view>
-		</picker>
-	</view>
+    <view class="title">五险一金</view>
+    <input placeholder="五险一金个人缴纳部分" value="{{wuXianYiJin}}" bindinput="wuXianYiJinInput"></input>
+    <text class="text-blue" bindtap="showBaseModal">修改基数</text>
+  </view>
   <view class="cu-form-group">
 		<view class="title">专项附加扣除</view>
-		<input placeholder="请输入专项附加扣除金额"></input>
+		<input placeholder="请输入专项附加扣除金额" bindinput="specialDecre"></input>
 		<icon type="info_circle"  bindtap="detail" size="22" />
 	</view>
 </form>
@@ -28,20 +26,136 @@
 	<text>观看广告增加<text class="text-red">10次</text>免费计算</text></view>
 </view>
 
-<view class="result"  hidden="{{hideview}}">
-  <text>社保缴纳合计:{{sheBaoResult}}</text>
-</view>
-<view class="result"  hidden="{{hideview}}">
-  <text>公积金缴纳合计:{{gongjiJinResult}}</text>
-</view>
-<view class="result"  hidden="{{hideview}}">
-  <text>应纳税额:{{taxResult}}</text>
-</view>
-<view class="result"  hidden="{{hideview}}">
-  <text>实际到手工资:{{result}}</text>
-</view>
-
 <view class="adContainer">
   <ad unit-id="adunit-210099d71f8acc47"></ad>
 </view>
 
+<!-- 添加弹窗 -->
+<view class="cu-modal {{showBaseModal?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">修改基数</view>
+      <view class="action" bindtap="hideBaseModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      <view class="cu-form-group">
+        <view class="title">社保缴纳基数</view>
+        <input type="digit" placeholder="社保缴纳基数" bindinput="sheBaoBaseInput" value="{{sheBaoBase}}"></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">公积金缴纳基数</view>
+        <input type="digit" placeholder="公积金缴纳基数" bindinput="gongJiJinBaseInput" value="{{gongJiJinBase}}"></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">公积金缴纳比例(%)</view>
+        <input type="digit" placeholder="公积金缴纳比例" bindinput="gongJiJinRateInput" value="{{gongJiJinRate}}"></input>
+      </view>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideBaseModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="confirmBaseChange">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 添加期数选择器 -->
+<view class="cu-modal {{showPeriodPicker?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">选择期数</view>
+      <view class="action" bindtap="hidePeriodPicker">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 200px;" value="{{[currentPeriod-1]}}" bindchange="periodChange">
+        <picker-view-column>
+          <view wx:for="{{12}}" wx:key="*this" style="line-height: 50px; text-align: center;">{{item + 1}}期</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hidePeriodPicker">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="confirmPeriodChange">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 在五险一金输入框下方添加 -->
+<!-- <view class="cu-form-group" wx:if="{{wuXianYiJin > 0}}">
+  <view class="title">社保缴纳</view>
+  <text>{{sheBaoResult}}元</text>
+</view>
+<view class="cu-form-group" wx:if="{{wuXianYiJin > 0}}">
+  <view class="title">公积金缴纳</view>
+  <text>{{gongJiJinResult}}元</text>
+</view>
+<view class="cu-form-group" wx:if="{{wuXianYiJin > 0}}">
+  <view class="title">五险一金合计</view>
+  <text>{{wuXianYiJin}}元</text>
+</view> -->
+
+<!-- 在计算按钮下方添加以下内容 -->
+<view class="calculation-result" hidden="{{hideview}}">
+  <view class="cu-list menu sm-border card-menu margin-top">
+    <view class="cu-item">
+      <view class="content">
+        <text>累计应纳税所得额</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{accumulatedTaxableIncome}}元</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text>适用税率</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{applicableRate}}%</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text>速算扣除数</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{quickDeduction}}元</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text>累计已缴纳税额</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{accumulatedTax}}元</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text>本月应缴个税</text>
+      </view>
+      <view class="action">
+        <text class="text-red text-sm">{{taxResult}}元</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text>本月到手工资</text>
+      </view>
+      <view class="action">
+        <text class="text-green text-sm">{{result}}元</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 在计算结果视图的最后添加礼花动画容器 -->
+<view class="confetti-container" hidden="{{!showConfetti}}">
+  <canvas canvas-id="confetti" style="width: 100%; height: 100%;"></canvas>
+</view>
