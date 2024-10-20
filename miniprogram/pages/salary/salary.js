@@ -88,10 +88,9 @@ Page({
       })
   },
   detail: function (e) {
-    this.setData({
-      modalName: 'DialogModal1',
-      modalContent: '子女教育：每个子女1000元\n继续教育：400元/月\n住房贷款利息：1500元/月\n' +
-        '住房租金：1500元/月\n赡养老人：2000元/月\n大病医疗：限额80000元'
+    wx.showModal({
+      content: '子女教育：每个子女1000元 \n 继续教育：400元/月 \n 住房贷款利息：1500元/月 \n' +
+        '住房租金:1500元/月 \n 赡养老人：2000元/月 \n 大病医疗：限额80000元/',
     })
   },
   showModal(e) {
@@ -471,7 +470,7 @@ Page({
       });
 
       ctx.draw();
-      requestAnimationFrame(animate);
+    //   requestAnimationFrame(animate);
     };
 
     // 开始动画

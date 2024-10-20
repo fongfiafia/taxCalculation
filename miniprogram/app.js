@@ -10,7 +10,7 @@ App({
     })
   },
   globalData: {
-    availableCountTimes: 4,
+    availableCountTimes: 2,
     adviceCount:0,
   },
   getCurrentTime:function(e) {
