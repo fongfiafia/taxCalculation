@@ -1,7 +1,38 @@
 {
   "desc": "关于本文件的更多信息，请参考文档 https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html",
-  "rules": [{
-  "action": "allow",
-  "page": "*"
-  }]
+  "rules": [
+    {
+      "action": "allow",
+      "page": "pages/index/index"
+    },
+    {
+      "action": "allow",
+      "page": "pages/salary/salary"
+    },
+    {
+      "action": "allow",
+      "page": "pages/bonus/bonus",
+      "params": [
+        "currentPeriod",
+        "sheBaoBase",
+        "gongJiJinBase",
+        "gongJiJinRate"
+      ]
+    },
+    {
+      "action": "allow",
+      "page": "pages/salary/salary",
+      "params": [
+        "currentPeriod",
+        "sheBaoBase",
+        "gongJiJinBase",
+        "gongJiJinRate"
+      ],
+      "matching": "inclusive"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/logs/logs"
+    }
+  ]
 }

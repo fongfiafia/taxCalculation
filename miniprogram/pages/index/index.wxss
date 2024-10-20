@@ -1,31 +1,46 @@
 /**index.wxss**/
 .shareText{
-  font-size: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0px
+  font-size: 28px;
+  color: #666;
+  text-align: center;
+  margin-top: 40rpx;
 }
 .btn-image{
-  padding-top: 70px;
-  height: 40px;
-  padding-bottom: 0px
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60rpx;
 }
 .weui-btn-area{
   padding-top: 20%
 }
 .btn-area{
-  padding-top: 20%
+  margin-top: 40rpx;
+  margin-bottom: 60rpx;
 }
 .image{
-  width: 30px;
-  height: 30px
+  width: 80rpx;
+  height: 80rpx
 }
 .cu-btn{
-  height: 100%
+  width: 200rpx;
+  height: 200rpx;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4CAF50;
+  color: gray;
+  box-shadow: 0 4rpx 8rpx rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.cu-btn:active {
+  transform: scale(0.95);
 }
 .btn-share{
-  background: white
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 button::after{
   border: none;
@@ -33,8 +48,9 @@ button::after{
   height: 100px;
 }
 .page{
-  background: white;
-  height: 100%
+  background-color: #f8f8f8;
+  min-height: 100vh;
+  padding: 20rpx;
 }
 .circle{
   width: 80%;
@@ -48,6 +64,9 @@ button::after{
   height: 100%
 }
 .text-myself{
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -108,4 +127,44 @@ button::after{
   text-overflow: ellipsis;
   white-space: nowrap;
   letter-spacing: 2px;
+}
+
+/* 在现有样式的基础上添加以下内容 */
+
+.faq-section {
+  background-color: white;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-top: 40rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.faq-list {
+  border-top: 1rpx solid #eee;
+}
+
+.faq-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.faq-question {
+  font-size: 28rpx;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-toggle {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.faq-answer {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 10rpx;
+  padding-left: 20rpx;
+  border-left: 4rpx solid #4CAF50;
 }

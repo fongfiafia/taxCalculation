@@ -13,6 +13,15 @@
   </swiper>
 </view> -->
 
+<view>
+  <view class="seo-title" aria-label="2024年工资计算器：个税、社保、公积金、年终奖计算" style="display:none;">
+    2024年工资计算器：个税、社保、公积金、年终奖计算
+  </view>
+  <view class="seo-description" aria-label="轻松计算个人所得税、社保、公积金、年终奖、离职补偿等" style="display:none;">
+    轻松计算个人所得税、社保、公积金、年终奖、离职补偿等
+  </view>
+</view>
+
 <view class="page"  xmlns:wx="http://www.w3.org/1999/xhtml"> 
     <view class="weui-panel__hd" ><text class="text-myself">请选择要计算的类别</text></view>
    
@@ -21,17 +30,50 @@
       <button class="cu-btn round circle lg" bindtap="toBonus"> 年终奖</button>
     </view>
 
-    <view class="btn-image">
+    <!-- <view class="btn-image">
       <button class="btn-share" bindtap="detail" open-type="share"> 
         <image src="/img/share.png" class="image"> 
         </image>
       </button>
       <view class="shareText" >分享给好友</view>
-    </view>
-
-    <!-- <view class="adContainer" style="">
-      <ad unit-id="adunit-210099d71f8acc47" ad-intervals="30"></ad>
     </view> -->
+
+    <view class="faq-section">
+    <text class="section-title">常见问题</text>
+    <view class="faq-list">
+      <view class="faq-item" bindtap="toggleFAQ" data-index="0">
+        <view class="faq-question">
+          <text>Q: 如何计算税后工资？</text>
+          <text class="faq-toggle">{{faqOpen[0] ? '▲' : '▼'}}</text>
+        </view>
+        <view class="faq-answer" hidden="{{!faqOpen[0]}}">
+          A: 税后工资计算步骤：1. 计算应纳税所得额（税前工资减去社保、公积金和起征点 2. 根据应纳税所得额确定税率和速算扣除数 3. 计算个人所得税 4. 用税前工资减去个人所得税、社保和公积金即为税后工资。
+        </view>
+      </view>
+      <view class="faq-item" bindtap="toggleFAQ" data-index="1">
+        <view class="faq-question">
+          <text>Q: 年终奖如何计税？</text>
+          <text class="faq-toggle">{{faqOpen[1] ? '▲' : '▼'}}</text>
+        </view>
+        <view class="faq-answer" hidden="{{!faqOpen[1]}}">
+          A: 年终奖计税方法：1. 将年终奖除以12得到月平均值 2. 根据月平均值确定适用税率和速算扣除数 3. 用年终奖乘以适用税率，再减去速算扣除数，得到应纳税额。
+        </view>
+      </view>
+      <view class="faq-item" bindtap="toggleFAQ" data-index="2">
+        <view class="faq-question">
+          <text>Q: 什么是专项附加扣除？</text>
+          <text class="faq-toggle">{{faqOpen[2] ? '▲' : '▼'}}</text>
+        </view>
+        <view class="faq-answer" hidden="{{!faqOpen[2]}}">
+          A: 专项附加扣除包括子女教育、继续教育、大病医疗、住房贷款利息或住房租金、赡养老人等支出，可以在计算个人所得税时从应纳税所得额中扣除。
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="adContainer">
+      <ad unit-id="adunit-210099d71f8acc47" ad-intervals="30"></ad>
+  </view>
+    
 </view>
 
 

@@ -1,4 +1,12 @@
 <!--pages/bonus/bonus.wxml-->
+<!-- 添加页面标题和描述 -->
+<view class="page-title" aria-label="2024年工资计算器：个税、社保、公积金、年终奖计算" style="display:none;">
+  <text>2024年工资计算器</text>
+</view>
+<view class="page-description" aria-label="轻松计算个人所得税、社保、公积金、年终奖、离职补偿等" style="display:none;">
+  <text>轻松计算个人所得税、社保、公积金、年终奖、离职补偿等</text>
+</view>
+
 <form>
 	<view class="cu-form-group margin-top">
 		<view class="title">{{text1}}</view>

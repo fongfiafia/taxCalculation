@@ -1,3 +1,11 @@
+<!-- 添加页面标题和描述 -->
+<view class="page-title" aria-label="2024年工资计算器：个税、社保、公积金、年终奖计算" style="display:none;">
+  <text>2024年工资计算器</text>
+</view>
+<view class="page-description" aria-label="轻松计算个人所得税、社保、公积金、年终奖、离职补偿等" style="display:none;">
+  <text>轻松计算个人所得税、社保、公积金、年终奖、离职补偿等</text>
+</view>
+
 <form>
 	<view class="cu-form-group margin-top">
 		<view class="title">税前工资</view>
@@ -15,15 +23,15 @@
 		<icon type="info_circle"  bindtap="detail" size="22" />
 	</view>
 </form>
-<view class="padding flex  justify-between bg-white" >
-  <button class="cu-btn round circle lg bg-green" open-type="share">分享</button>
-  <button class="cu-btn round circle lg bg-green" bindtap="calculate" hidden= "{{hideCalculate}}">计算</button>
-	<button class="cu-btn round circle lg bg-green" bindtap="watchAdvert" hidden="{{hideAdvert}}">观看广告</button>
-</view>
 
 <view class="padding-lr bg-white">
 	<view class="text-left padding" style="white-space:pre-line">剩余计算次数： {{availableCountTimes}}次
 	<text>观看广告增加<text class="text-red">10次</text>免费计算</text></view>
+</view>
+
+<view class="flex justify-center bg-white">
+  <button class="cu-btn round circle lg bg-green" bindtap="calculate" hidden="{{hideCalculate}}">计算</button>
+<button class="cu-btn round circle lg bg-green" bindtap="watchAdvert" hidden="{{hideAdvert}}">观看广告</button>
 </view>
 
 <view class="adContainer">
@@ -87,20 +95,6 @@
   </view>
 </view>
 
-<!-- 在五险一金输入框下方添加 -->
-<!-- <view class="cu-form-group" wx:if="{{wuXianYiJin > 0}}">
-  <view class="title">社保缴纳</view>
-  <text>{{sheBaoResult}}元</text>
-</view>
-<view class="cu-form-group" wx:if="{{wuXianYiJin > 0}}">
-  <view class="title">公积金缴纳</view>
-  <text>{{gongJiJinResult}}元</text>
-</view>
-<view class="cu-form-group" wx:if="{{wuXianYiJin > 0}}">
-  <view class="title">五险一金合计</view>
-  <text>{{wuXianYiJin}}元</text>
-</view> -->
-
 <!-- 在计算按钮下方添加以下内容 -->
 <view class="calculation-result" hidden="{{hideview}}">
   <view class="cu-list menu sm-border card-menu margin-top">
@@ -146,18 +140,13 @@
     </view>
     <view class="cu-item">
       <view class="content">
-        <text>本月到手工资</text>
+        <text>本月到手工</text>
       </view>
       <view class="action">
         <text class="text-green text-sm">{{result}}元</text>
       </view>
     </view>
   </view>
-</view>
-
-<!-- 在计算结果视图的最后添加礼花动画容器 -->
-<view class="confetti-container" hidden="{{!showConfetti}}">
-  <canvas canvas-id="confetti" style="width: 100%; height: 100%;"></canvas>
 </view>
 
 <view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
@@ -172,4 +161,15 @@
       {{modalContent}}
     </view>
   </view>
+</view>
+
+<!-- 添加关键词和描述 -->
+<view class="seo-keywords" style="display:none;">
+  2024年新工资计算器,个人所得税计算,社保计算,公积金计算,年终奖计算,离职补偿计算,
+  灵活就业社保,退休年龄查询,劳务报酬计算,房贷计算器
+</view>
+<view class="seo-description" style="display:none;">
+  2024年最新工资计算器，支持个人所得税、社保、公积金、年终奖、离职补偿等多种计��功能。
+  适用于各类就业形式，包括灵活就业人员社保计算。还可查询退休年龄、计算劳务报酬税费和房贷。
+  一站式解决您的薪资相关问题。
 </view>

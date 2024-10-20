@@ -7,11 +7,11 @@
     "pages/myself/myself",
     "pages/logs/logs",
     "pages/detail/detail"
-  ],
+  ],    
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "工资年终奖个税计算器",
+    "navigationBarTitleText": "个人生活核算计算器",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

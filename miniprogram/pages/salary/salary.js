@@ -465,7 +465,7 @@ Page({
         ctx.moveTo(confetto.position.x, confetto.position.y);
         ctx.lineTo(confetto.position.x + width, confetto.position.y + height / 2);
         ctx.lineTo(confetto.position.x, confetto.position.y + height);
-        ctx.closePath();
+        ctx.closePath();    
         ctx.fill();
       });
 
