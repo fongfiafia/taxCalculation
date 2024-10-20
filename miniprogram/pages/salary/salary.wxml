@@ -159,3 +159,17 @@
 <view class="confetti-container" hidden="{{!showConfetti}}">
   <canvas canvas-id="confetti" style="width: 100%; height: 100%;"></canvas>
 </view>
+
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">专项附加扣除说明</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl modal-content">
+      {{modalContent}}
+    </view>
+  </view>
+</view>

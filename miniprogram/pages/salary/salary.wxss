@@ -44,3 +44,10 @@ button::after{
   pointer-events: none;
   z-index: 1000;
 }
+.text-left {
+  text-align: left;
+}
+.modal-content {
+  text-align: left;
+  white-space: pre-line;
+}
